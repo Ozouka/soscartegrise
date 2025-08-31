@@ -19,7 +19,7 @@ export default function CGUPage() {
               <h2>Présentation des services</h2>
               <p>
                 SOS Carte Grise – Saint-Gaudens propose des services d'immatriculation 
-                et de démarches administratives liées aux véhicules. Nos services incluent 
+                et de démarches administratives liés aux véhicules. Nos services incluent 
                 la gestion de dossiers de carte grise, changement de titulaire, duplicata, 
                 et modifications techniques.
               </p>
@@ -93,7 +93,3 @@ export default function CGUPage() {
     </main>
   );
 }
-```
-
-```
-

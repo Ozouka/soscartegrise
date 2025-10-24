@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { BUSINESS } from '@/lib/constants';
 import Link from 'next/link';
 
@@ -58,17 +58,14 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Services</h3>
             <div className="space-y-2">
-              <Link href="/services" className="block text-gray-300 hover:text-sky-400 transition-colors">
-                Changement de titulaire
+              <Link href="/carte-grise" className="block text-gray-300 hover:text-sky-400 transition-colors">
+                Carte grise
               </Link>
-              <Link href="/services" className="block text-gray-300 hover:text-sky-400 transition-colors">
-                Duplicata
+              <Link href="/permis-de-conduire" className="block text-gray-300 hover:text-sky-400 transition-colors">
+                Permis de conduire
               </Link>
-              <Link href="/services" className="block text-gray-300 hover:text-sky-400 transition-colors">
-                Changement d'adresse
-              </Link>
-              <Link href="/services" className="block text-gray-300 hover:text-sky-400 transition-colors">
-                Cession
+              <Link href="/plaques-d-immatriculation" className="block text-gray-300 hover:text-sky-400 transition-colors">
+                Plaques d'immatriculation
               </Link>
             </div>
           </div>
@@ -85,6 +82,15 @@ export default function Footer() {
               >
                 <Facebook className="w-5 h-5" />
                 Facebook
+              </a>
+              <a
+                href={BUSINESS.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-sky-400 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
               </a>
               <div className="pt-4">
                 <a

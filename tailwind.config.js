@@ -21,9 +21,25 @@ module.exports = {
           900: '#0c4a6e',
         },
       },
+      perspective: {
+        '1000': '1000px',
+      },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
+    function({ addUtilities }) {
+      addUtilities({
+        '.transform-style-3d': {
+          'transform-style': 'preserve-3d',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        },
+        '.perspective-1000': {
+          'perspective': '1000px',
+        },
+      });
+    },
   ],
 }

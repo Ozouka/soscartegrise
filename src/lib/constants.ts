@@ -1,3 +1,11 @@
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  documents: string[];
+  delay: string;
+  price: string;
+}
 
 export const BUSINESS = {
   name: "SOS Carte Grise – Saint-Gaudens",
@@ -7,7 +15,7 @@ export const BUSINESS = {
   note: "En face de La Poste",
   phoneMain: "+33 6 19 92 33 40",
   phoneDesk: "+33 5 81 66 69 00",
-  email: "contact@soscartegrise-saintgaudens.fr",
+  email: "soscartegrise31@hotmail.com",
   hours: [
     { day: "Lundi", am: "08:30–12:00", pm: "14:00–18:00" },
     { day: "Mardi", am: "08:30–12:00", pm: "14:00–18:00" },
@@ -16,7 +24,7 @@ export const BUSINESS = {
     { day: "Vendredi", am: "08:30–12:00", pm: "14:00–18:00" },
   ],
   geo: { lat: 43.107, lng: 0.723 },
-  social: { facebook: "https://www.facebook.com/soscartegrise31800/" }
+  social: { facebook: "https://www.facebook.com/soscartegrise31800/", instagram: "https://www.instagram.com/soscartegrise/" }
 };
 
 export const SERVICES = [

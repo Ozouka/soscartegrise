@@ -80,7 +80,7 @@ export default function ContactCard() {
             ) : (
               <a
                 href={`${info.action}:${info.value}`}
-                className="btn-primary text-sm px-4 py-2"
+                className={`btn-primary text-sm px-4 py-2${info.action === 'mailto' ? ' hidden md:block' : ''}`}
               >
                 {info.action === 'tel' ? 'Appeler' : 'Envoyer'}
               </a>

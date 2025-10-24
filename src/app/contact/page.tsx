@@ -126,8 +126,7 @@ export default function ContactPage() {
                   Besoin d'aide immédiate ?
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Appelez-nous directement pour un conseil personnalisé ou 
-                  pour prendre rendez-vous.
+                  Appelez-nous directement pour un conseil personnalisé.
                 </p>
                 <a
                   href={`tel:${BUSINESS.phoneMain}`}

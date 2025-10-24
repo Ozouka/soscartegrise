@@ -71,7 +71,7 @@ export default function PolitiqueConfidentialitePage() {
               <p>
                 Pour toute question relative à la protection de vos données personnelles, 
                 vous pouvez nous contacter à l'adresse email : 
-                contact@soscartegrise-saintgaudens.fr
+                soscartegrise31@hotmail.com
               </p>
 
               <h2>Cookies</h2>

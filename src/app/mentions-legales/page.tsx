@@ -22,7 +22,7 @@ export default function MentionsLegalesPage() {
                 17 Boulevard Charles de Gaulle<br />
                 31800 Saint-Gaudens<br />
                 Téléphone : 06 19 92 33 40<br />
-                Email : contact@soscartegrise-saintgaudens.fr
+                Email : soscartegrise31@hotmail.com
               </p>
 
               <h2>Activité</h2>

@@ -26,6 +26,51 @@
   .accent-bg {
     @apply bg-sky-50;
   }
+
+  .h-screen-no-nav {
+    height: calc(100vh - 80px);
+  }
+
+  /* Couleurs du logo SOS Carte Grise */
+  .text-sos-blue {
+    color: #3F48CC;
+  }
+  
+  .text-carte-red {
+    color: #ED1C24;
+  }
+  
+  .bg-sos-blue {
+    background-color: #3F48CC;
+  }
+  
+  .bg-carte-red {
+    background-color: #ED1C24;
+  }
+  
+  .border-sos-blue {
+    border-color: #3F48CC;
+  }
+  
+  .border-carte-red {
+    border-color: #ED1C24;
+  }
+  
+  .hover\:bg-sos-blue:hover {
+    background-color: #3F48CC;
+  }
+  
+  .hover\:bg-carte-red:hover {
+    background-color: #ED1C24;
+  }
+  
+  .hover\:text-sos-blue:hover {
+    color: #3F48CC;
+  }
+  
+  .hover\:text-carte-red:hover {
+    color: #ED1C24;
+  }
 }
 
 @layer base {
@@ -35,6 +80,20 @@
   
   body {
     @apply text-gray-900 bg-white;
+    padding-top: 80px; 
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
   }
 }
 

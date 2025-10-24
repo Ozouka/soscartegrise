@@ -154,7 +154,6 @@ export default function ContactForm() {
             <option value="">Sélectionnez un sujet</option>
             <option value="devis">Demande de devis</option>
             <option value="renseignements">Renseignements</option>
-            <option value="rdv">Prise de rendez-vous</option>
             <option value="autre">Autre</option>
           </select>
           {errors.sujet && (

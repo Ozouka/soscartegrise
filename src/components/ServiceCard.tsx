@@ -1,5 +1,9 @@
+'use client';
+
 import { ArrowRight, Clock, Euro } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
+import Image from 'next/image';
 
 interface Service {
   id: string;
@@ -15,53 +19,84 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service }: ServiceCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="card-lg hover:shadow-xl transition-shadow duration-300">
-      <div className="flex flex-col h-full">
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold text-gray-900 mb-3">
-            {service.title}
-          </h3>
-          <p className="text-gray-600 mb-4">
-            {service.description}
-          </p>
-          
-          <div className="space-y-3 mb-6">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Clock className="w-4 h-4 text-sky-600" />
-              <span>Délai : {service.delay}</span>
+    <div 
+      className="relative h-[400px] w-full rounded-2xl overflow-hidden group cursor-pointer"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      {/* Image de fond avec titre */}
+      <div className="absolute inset-0">
+        <Image 
+          src="/image_certificat_immat.webp" 
+          alt="Certificat d'immatriculation" 
+          fill
+          className="object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-700/10 to-[#3F48CC]/15 backdrop-blur-md" />
+      </div>
+
+      {/* Titre */}
+      <div className="absolute inset-0 flex items-center justify-center p-8 z-10">
+        <h3 className="text-2xl md:text-3xl font-bold text-white text-center drop-shadow-lg">
+          {service.title}
+        </h3>
+      </div>
+
+      {/* Contenu qui apparaît/disparaît */}
+      <div 
+        className={`absolute inset-0 bg-white z-20 transition-all duration-500 ease-in-out ${
+          isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none md:group-hover:opacity-100 md:group-hover:scale-100 md:group-hover:pointer-events-auto'
+        }`}
+      >
+        <div className="h-full flex flex-col p-6">
+          <div className="flex-1 overflow-y-auto">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 mb-4 text-sm">
+              {service.description}
+            </p>
+            
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Clock className="w-4 h-4 text-sky-600 flex-shrink-0" />
+                <span>Délai : {service.delay}</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Euro className="w-4 h-4 text-sky-600 flex-shrink-0" />
+                <span>{service.price}</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Euro className="w-4 h-4 text-sky-600" />
-              <span>{service.price}</span>
+
+            <div className="mb-6">
+              <h4 className="font-medium text-gray-900 mb-2 text-sm">Documents requis :</h4>
+              <ul className="space-y-1">
+                {service.documents.slice(0, 3).map((doc, index) => (
+                  <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-sky-600 rounded-full mt-1.5 flex-shrink-0"></span>
+                    <span>{doc}</span>
+                  </li>
+                ))}
+                {service.documents.length > 3 && (
+                  <li className="text-sm text-sky-600">
+                    +{service.documents.length - 3} autres documents
+                  </li>
+                )}
+              </ul>
             </div>
           </div>
 
-          <div className="mb-6">
-            <h4 className="font-medium text-gray-900 mb-2">Documents requis :</h4>
-            <ul className="space-y-1">
-              {service.documents.slice(0, 3).map((doc, index) => (
-                <li key={index} className="text-sm text-gray-600 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-sky-600 rounded-full"></span>
-                  {doc}
-                </li>
-              ))}
-              {service.documents.length > 3 && (
-                <li className="text-sm text-sky-600">
-                  +{service.documents.length - 3} autres documents
-                </li>
-              )}
-            </ul>
-          </div>
+          <Link
+            href={`/services#${service.id}`}
+            className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium transition-colors mt-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            En savoir plus
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-
-        <Link
-          href={`/services#${service.id}`}
-          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium transition-colors"
-        >
-          En savoir plus
-          <ArrowRight className="w-4 h-4" />
-        </Link>
       </div>
     </div>
   );

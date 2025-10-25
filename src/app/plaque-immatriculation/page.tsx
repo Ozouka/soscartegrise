@@ -1,3 +1,4 @@
+import IconTruck from '@/components/icons/IconTruck';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -56,13 +57,13 @@ export default function PlaqueImmatriculationPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-16">
+      <section className="bg-gradient-to-br from-sky-600 to-sky-800 text-white py-16">
         <div className="container-lg mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Plaque d'immatriculation
             </h1>
-            <p className="text-xl text-purple-100 leading-relaxed">
+            <p className="text-xl text-sky-100 leading-relaxed">
               Commandez vos plaques d'immatriculation homologuées. 
               Service rapide et conforme aux normes françaises en vigueur.
             </p>
@@ -82,7 +83,7 @@ export default function PlaqueImmatriculationPage() {
                 key={plaque.id}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-32 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                <div className="h-32 bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center">
                   <div className="bg-white px-4 py-2 rounded border-2 border-gray-800">
                     <span className="font-bold text-gray-800">AB-123-CD</span>
                   </div>
@@ -94,13 +95,13 @@ export default function PlaqueImmatriculationPage() {
                   <p className="text-gray-600 mb-4 text-sm">
                     {plaque.description}
                   </p>
-                  <div className="text-lg font-bold text-purple-600 mb-4">
+                  <div className="text-lg font-bold text-sky-600 mb-4">
                     {plaque.price}
                   </div>
                   <ul className="text-sm text-gray-600 mb-4 space-y-1">
                     {plaque.features.map((feature, index) => (
                       <li key={index} className="flex items-center">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                        <span className="w-2 h-2 bg-sky-600 rounded-full mr-2"></span>
                         {feature}
                       </li>
                     ))}
@@ -126,9 +127,9 @@ export default function PlaqueImmatriculationPage() {
               {departements.map((dept) => (
                 <div
                   key={dept.code}
-                  className="bg-gray-50 p-4 rounded-lg text-center hover:bg-purple-50 transition-colors"
+                  className="bg-gray-50 p-4 rounded-lg text-center hover:bg-sky-50 transition-colors"
                 >
-                  <div className="text-2xl font-bold text-purple-600 mb-1">
+                  <div className="text-2xl font-bold text-sky-600 mb-1">
                     {dept.code}
                   </div>
                   <div className="text-sm text-gray-600">
@@ -142,7 +143,7 @@ export default function PlaqueImmatriculationPage() {
       </section>
 
       {/* Informations importantes */}
-      <section className="bg-purple-50 py-16">
+      <section className="bg-sky-50 py-16">
         <div className="container-lg mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -150,7 +151,7 @@ export default function PlaqueImmatriculationPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-2xl">✓</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -161,18 +162,18 @@ export default function PlaqueImmatriculationPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-2xl">⚡</span>
+                <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <IconTruck className="text-white w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Livraison rapide
+                  Retrait express
                 </h3>
                 <p className="text-gray-600">
-                  Fabrication et livraison sous 48h pour les commandes passées avant 14h.
+                  Vos plaques sont fabriquées et prêtes à être récupérées en magasin sous 48h.
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-2xl">🛡️</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -188,19 +189,19 @@ export default function PlaqueImmatriculationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-purple-600 text-white py-16">
+      <section className="bg-sky-600 text-white py-16">
         <div className="container-lg mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Commandez vos plaques dès maintenant
           </h2>
-          <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-sky-100 mb-8 max-w-2xl mx-auto">
             Service rapide, qualité garantie et conformité assurée pour toutes vos plaques d'immatriculation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <a href="/contact" className="bg-white text-sky-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Commander maintenant
             </a>
-            <a href="tel:0561949494" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+            <a href="tel:0561949494" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-600 transition-colors">
               Appeler pour commander
             </a>
           </div>

@@ -66,13 +66,13 @@ export default function PermisDeConduirePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-emerald-800 text-white py-16">
+      <section className="bg-gradient-to-br from-sky-600 to-sky-800 text-white py-16">
         <div className="container-lg mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Permis de conduire
             </h1>
-            <p className="text-xl text-emerald-100 leading-relaxed">
+            <p className="text-xl text-sky-100 leading-relaxed">
               Toutes vos démarches pour le permis de conduire simplifiées. 
               Notre équipe vous accompagne dans chaque étape de vos démarches administratives.
             </p>
@@ -83,28 +83,33 @@ export default function PermisDeConduirePage() {
       {/* Services Grid */}
       <section className="py-16">
         <div className="container-lg mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+          <div className="flex flex-col gap-8">
+            {services.map((service, index) => (
               <div
                 key={service.id}
                 id={service.id}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-emerald-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">P</span>
+                <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6`}>
+                  {/* Image */}
+                  <div className="md:w-1/3 lg:w-2/5 bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center min-h-[200px] md:min-h-[280px]">
+                    <div className="w-20 h-20 bg-sky-600 rounded-xl flex items-center justify-center">
+                      <span className="text-white font-bold text-3xl">P</span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {service.description}
-                  </p>
-                  <button className="btn-primary w-full">
-                    En savoir plus
-                  </button>
+                  
+                  {/* Content */}
+                  <div className="md:w-2/3 lg:w-3/5 p-6 flex flex-col gap-4">
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 flex-grow">
+                      {service.description}
+                    </p>
+                    <button className="btn-primary w-full md:w-auto md:self-start">
+                      En savoir plus
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -120,11 +125,11 @@ export default function PermisDeConduirePage() {
               Informations importantes
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-emerald-50 p-6 rounded-xl">
-                <h3 className="text-xl font-bold text-emerald-800 mb-4">
+              <div className="bg-sky-50 p-6 rounded-xl">
+                <h3 className="text-xl font-bold text-sky-800 mb-4">
                   Documents nécessaires
                 </h3>
-                <ul className="text-emerald-700 space-y-2">
+                <ul className="text-sky-700 space-y-2">
                   <li>• Pièce d'identité en cours de validité</li>
                   <li>• Justificatif de domicile récent</li>
                   <li>• Photo d'identité aux normes</li>
@@ -148,7 +153,7 @@ export default function PermisDeConduirePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-emerald-50 py-16">
+      <section className="bg-sky-50 py-16">
         <div className="container-lg mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Besoin d'aide pour votre permis de conduire ?

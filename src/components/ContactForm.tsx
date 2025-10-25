@@ -37,12 +37,25 @@ export default function ContactForm() {
     
     setStatus('sending');
     
-    // Simulation d'envoi (remplacer par votre logique d'envoi)
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erreur lors de l\'envoi');
+      }
+
       setStatus('success');
       setFormData({ nom: '', email: '', telephone: '', sujet: '', message: '' });
     } catch (error) {
+      console.error('Erreur:', error);
       setStatus('error');
     }
   };

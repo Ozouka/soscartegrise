@@ -96,7 +96,7 @@ export default function ContactCard() {
         </div>
         <div className="space-y-1 text-sm">
           {BUSINESS.hours.map((hour) => (
-            <div key={hour.day} className="flex justify-between">
+            <div key={hour.day} className="flex justify-between  gap-2 lg:gap-4">
               <span className="text-gray-700">{hour.day}</span>
               <span className="text-gray-600">
                 {hour.am} / {hour.pm}

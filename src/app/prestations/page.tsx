@@ -77,28 +77,33 @@ export default function PrestationsPage() {
       {/* Prestations Grid */}
       <section className="py-16">
         <div className="container-lg mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {prestations.map((prestation) => (
+          <div className="flex flex-col gap-8">
+            {prestations.map((prestation, index) => (
               <div
                 key={prestation.id}
                 id={prestation.id}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-48 bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-sky-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">CG</span>
+                <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6`}>
+                  {/* Image */}
+                  <div className="md:w-1/3 lg:w-2/5 bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center min-h-[200px] md:min-h-[280px]">
+                    <div className="w-20 h-20 bg-sky-600 rounded-xl flex items-center justify-center">
+                      <span className="text-white font-bold text-3xl">CG</span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {prestation.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {prestation.description}
-                  </p>
-                  <button className="btn-primary w-full">
-                    En savoir plus
-                  </button>
+                  
+                  {/* Content */}
+                  <div className="md:w-2/3 lg:w-3/5 p-6 flex flex-col gap-4">
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      {prestation.title}
+                    </h3>
+                    <p className="text-gray-600 flex-grow">
+                      {prestation.description}
+                    </p>
+                    <button className="btn-primary w-full md:w-auto md:self-start">
+                      En savoir plus
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

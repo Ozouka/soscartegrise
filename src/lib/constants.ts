@@ -17,11 +17,11 @@ export const BUSINESS = {
   phoneDesk: "+33 5 81 66 69 00",
   email: "soscartegrise31@hotmail.com",
   hours: [
-    { day: "Lundi", am: "08:30–12:00", pm: "14:00–18:00" },
-    { day: "Mardi", am: "08:30–12:00", pm: "14:00–18:00" },
-    { day: "Mercredi", am: "08:30–12:00", pm: "14:00–18:00" },
-    { day: "Jeudi", am: "08:30–12:00", pm: "14:00–18:00" },
-    { day: "Vendredi", am: "08:30–12:00", pm: "14:00–18:00" },
+    { day: "Lundi", am: "08:30–12:00", pm: "14:00–17:00" },
+    { day: "Mardi", am: "08:30–12:00", pm: "14:00–17:00" },
+    { day: "Mercredi", am: "08:30–12:00", pm: "Fermé " },
+    { day: "Jeudi", am: "08:30–12:00", pm: "14:00–17:00" },
+    { day: "Vendredi", am: "08:30–12:00", pm: "14:00–17:00" },
   ],
   geo: { lat: 43.107, lng: 0.723 },
   social: { facebook: "https://www.facebook.com/soscartegrise31800/", instagram: "https://www.instagram.com/soscartegrise/" }

@@ -41,7 +41,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold mb-4">Horaires d'ouverture</h3>
             <div className="space-y-2">
               {BUSINESS.hours.map((hour) => (
-                <div key={hour.day} className="flex justify-between">
+                <div key={hour.day} className="flex justify-between gap-2 lg:gap-4">
                   <span className="text-gray-300">{hour.day}</span>
                   <span className="text-gray-400">
                     {hour.am} / {hour.pm}

@@ -107,7 +107,7 @@ export default function ContactPage() {
                     </h3>
                     <div className="space-y-1 text-gray-600">
                       {BUSINESS.hours.map((hour) => (
-                        <div key={hour.day} className="flex justify-between">
+                        <div key={hour.day} className="flex justify-between gap-2 lg:gap-4">
                           <span>{hour.day}</span>
                           <span>{hour.am} / {hour.pm}</span>
                         </div>

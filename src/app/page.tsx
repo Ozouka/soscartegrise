@@ -59,9 +59,6 @@ export default function HomePage() {
       {/* Section réassurance - Pourquoi nous faire confiance */}
       <ReassuranceSection items={REASSURANCE_ITEMS} />
 
-      {/* Section prix du cheval fiscal et documents */}
-      <PricingDocumentsSection />
-
       {/* Section contact et localisation */}
       <ContactLocationSection />
     </main>

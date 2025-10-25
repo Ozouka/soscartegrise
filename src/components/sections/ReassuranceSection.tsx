@@ -3,6 +3,7 @@
 import { ReactNode } from 'react';
 import AnimatedSection from '@/components/AnimatedSection';
 import ReassuranceCard from '@/components/ReassuranceCard';
+import PricingDocumentsSection from './PricingDocumentsSection';
 
 export interface ReassuranceItem {
   icon: ReactNode;
@@ -29,7 +30,7 @@ export default function ReassuranceSection({ items }: ReassuranceSectionProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {items.map((item, index) => (
-            <AnimatedSection key={index} delay={index * 0.2}>
+            <AnimatedSection key={index} delay={index * 0.4}>
               <ReassuranceCard
                 icon={item.icon}
                 title={item.title}
@@ -38,6 +39,10 @@ export default function ReassuranceSection({ items }: ReassuranceSectionProps) {
             </AnimatedSection>
           ))}
         </div>
+      {/* Section prix du cheval fiscal et documents */}
+      <AnimatedSection>
+        <PricingDocumentsSection />
+      </AnimatedSection>
       </div>
     </section>
   );

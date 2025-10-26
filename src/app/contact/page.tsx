@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Navigation } from 'lucide-react';
 import { BUSINESS } from '@/lib/constants';
 import ContactForm from '@/components/ContactForm';
 import MapEmbed from '@/components/MapEmbed';
@@ -160,7 +160,45 @@ export default function ContactPage() {
               Notre agence est située en face de La Poste, au cœur de Saint-Gaudens. 
               Stationnement facile et accès simple.
             </p>
+            
             <MapEmbed />
+
+
+            {/* Boutons d'itinéraire */}
+            <div className=" lg:hidden mt-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+                Obtenir l'itinéraire
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=17+Boulevard+Charles+de+Gaulle,31800+Saint-Gaudens"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-sky-200 hover:border-sky-400 rounded-xl text-gray-900 font-medium transition-all hover:shadow-md"
+                >
+                  <Navigation className="w-5 h-5 text-sky-600" />
+                  Google Maps
+                </a>
+                <a
+                  href="https://waze.com/ul?q=17+Boulevard+Charles+de+Gaulle,31800+Saint-Gaudens"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-sky-200 hover:border-sky-400 rounded-xl text-gray-900 font-medium transition-all hover:shadow-md"
+                >
+                  <Navigation className="w-5 h-5 text-sky-600" />
+                  Waze
+                </a>
+                <a
+                  href="http://maps.apple.com/?daddr=17+Boulevard+Charles+de+Gaulle,31800+Saint-Gaudens"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white border-2 border-sky-200 hover:border-sky-400 rounded-xl text-gray-900 font-medium transition-all hover:shadow-md"
+                >
+                  <Navigation className="w-5 h-5 text-sky-600" />
+                  Plans
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

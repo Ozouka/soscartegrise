@@ -10,7 +10,6 @@ interface Service {
   title: string;
   description: string;
   documents: string[];
-  delay: string;
   price: string;
 }
 

@@ -24,6 +24,7 @@ export default function Header() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const prestationsItems: DropdownItem[] = [
     { name: 'Changement de titulaire', href: '/prestations#changement-titulaire' },
@@ -69,6 +70,24 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Fermer le menu mobile quand on clique à l'extérieur
+  useEffect(() => {
+    function handleClickOutsideMobileMenu(event: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+        setMobileDrawer(null);
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutsideMobileMenu);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideMobileMenu);
+    };
+  }, [isMenuOpen]);
 
   // Gérer l'affichage/masquage du header au scroll
   useEffect(() => {
@@ -206,7 +225,7 @@ export default function Header() {
           {/* Menu mobile */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="xl:hidden p-2 text-gray-700 hover:text-sky-600"
+            className="xl:hidden p-2 text-gray-700 transition-all duration-300 hover:text-sky-600"
             aria-label="Menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -214,8 +233,13 @@ export default function Header() {
         </div>
 
         {/* Menu mobile */}
-        {isMenuOpen && (
-          <div className="xl:hidden relative overflow-hidden">
+        <div 
+          ref={mobileMenuRef}
+          className={`xl:hidden relative overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="relative overflow-hidden">
             {/* Menu principal mobile */}
             <div className={`py-4 border-t border-gray-200 transition-transform duration-300 ease-in-out ${
               mobileDrawer ? '-translate-x-full' : 'translate-x-0'
@@ -286,7 +310,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

@@ -3,7 +3,6 @@ export interface Service {
   title: string;
   description: string;
   documents: string[];
-  delay: string;
   price: string;
 }
 
@@ -29,11 +28,31 @@ export const BUSINESS = {
 
 export const SERVICES = [
   {
+    id: "carte-grise",
+    title: "Carte grise",
+    description: "Établissement ou renouvellement de votre certificat d'immatriculation",
+    documents: ["Justificatif d'identité", "Justificatif de domicile", "Certificat de conformité"],
+    price: "À partir de 59€"
+  },
+  {
+    id: "permis-conduire",
+    title: "Permis de conduire",
+    description: "Renouvellement, duplicata ou échange de permis de conduire",
+    documents: ["Justificatif d'identité", "Justificatif de domicile", "Photo d'identité", "Permis actuel si applicable"],
+    price: "À partir de 49€"
+  },
+  {
+    id: "plaque-immatriculation",
+    title: "Plaque d'immatriculation",
+    description: "Fourniture et pose de plaques d'immatriculation homologuées",
+    documents: ["Carte grise du véhicule"],
+    price: "À partir de 29€"
+  },
+  {
     id: "changement-titulaire",
     title: "Changement de titulaire",
     description: "Transfert de propriété lors de l'achat d'un véhicule",
     documents: ["Certificat de cession", "Justificatif d'identité", "Justificatif de domicile", "Contrôle technique si nécessaire"],
-    delay: "24-48h",
     price: "À partir de 89€"
   },
   {
@@ -41,7 +60,6 @@ export const SERVICES = [
     title: "Duplicata de carte grise",
     description: "Remplacement en cas de perte, vol ou détérioration",
     documents: ["Déclaration de perte/vol", "Justificatif d'identité", "Justificatif de domicile"],
-    delay: "24-48h",
     price: "À partir de 79€"
   },
   {
@@ -49,7 +67,6 @@ export const SERVICES = [
     title: "Changement d'adresse",
     description: "Mise à jour de l'adresse sur le certificat d'immatriculation",
     documents: ["Justificatif de domicile", "Carte grise actuelle"],
-    delay: "24-48h",
     price: "À partir de 69€"
   },
   {
@@ -57,7 +74,6 @@ export const SERVICES = [
     title: "Cession de véhicule",
     description: "Vente de véhicule avec transfert de propriété",
     documents: ["Certificat de cession", "Justificatif d'identité", "Justificatif de domicile"],
-    delay: "24-48h",
     price: "À partir de 89€"
   },
   {
@@ -65,7 +81,6 @@ export const SERVICES = [
     title: "WW provisoire",
     description: "Immatriculation provisoire pour véhicule en transit",
     documents: ["Certificat de conformité", "Justificatif d'identité", "Justificatif de domicile"],
-    delay: "24-48h",
     price: "À partir de 99€"
   },
   {
@@ -73,7 +88,6 @@ export const SERVICES = [
     title: "Import/COC",
     description: "Immatriculation de véhicule importé",
     documents: ["Certificat de conformité", "Certificat de douane", "Justificatif d'identité", "Justificatif de domicile"],
-    delay: "48-72h",
     price: "À partir de 129€"
   }
 ];

@@ -3,7 +3,6 @@ import HeroHomeSection from '@/components/HeroHomeSection';
 import ServicesPresentationSection from '@/components/sections/ServicesPresentationSection';
 import ServicesShowcaseSection from '@/components/sections/ServicesShowcaseSection';
 import ReassuranceSection, { ReassuranceItem } from '@/components/sections/ReassuranceSection';
-import PricingDocumentsSection from '@/components/sections/PricingDocumentsSection';
 import ContactLocationSection from '@/components/sections/ContactLocationSection';
 import { SERVICES } from '@/lib/constants';
 import ChatBubbleLeftRightIcon from '@/components/icons/ChatBubbleLeftRightIcon';

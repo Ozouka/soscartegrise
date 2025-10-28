@@ -10,7 +10,6 @@ interface Service {
   title: string;
   description: string;
   documents: string[];
-  delay: string;
   price: string;
 }
 
@@ -60,10 +59,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             </p>
             
             <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Clock className="w-4 h-4 text-sky-600 flex-shrink-0" />
-                <span>Délai : {service.delay}</span>
-              </div>
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <Euro className="w-4 h-4 text-sky-600 flex-shrink-0" />
                 <span>{service.price}</span>

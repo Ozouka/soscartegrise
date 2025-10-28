@@ -55,14 +55,14 @@ export default function Hero() {
       />
       
       {/* Overlay avec dégradé */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/80 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 -z-10" />
       
       {/* Contenu au premier plan */}
       <div className="relative z-10 h-full flex flex-col justify-between px-4">
         <div className="flex-1 flex flex-col justify-center lg:pt-52">
           <div className="max-w-4xl mr-auto md:pl-12 xl:pl-56 flex flex-col gap-4">
             <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold drop-shadow-lg text-white">
-              SOS Carte Grise
+              <span className='text-sos-blue'>SOS</span> <span className='text-carte-red'>Carte</span> <span className='text-sos-blue'>Grise</span>
             </h1>
             <p ref={subtitleRef} className="text-xl md:text-2xl text-white/90 drop-shadow-md">
               {subtitle}

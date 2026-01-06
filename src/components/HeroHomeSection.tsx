@@ -62,7 +62,7 @@ export default function Hero() {
         <div className="flex-1 flex flex-col justify-center lg:pt-52">
           <div className="max-w-4xl mr-auto md:pl-12 xl:pl-56 flex flex-col gap-4">
             <h1 ref={titleRef} className="text-4xl md:text-6xl font-bold drop-shadow-lg text-white">
-              <span className='text-sos-blue'>SOS</span> <span className='text-carte-red'>Carte</span> <span className='text-sos-blue'>Grise</span>
+              <span className='text-white'>SOS</span> <span className='text-white'>Carte</span> <span className='text-white'>Grise</span>
             </h1>
             <p ref={subtitleRef} className="text-xl md:text-2xl text-white/90 drop-shadow-md">
               {subtitle}

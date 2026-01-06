@@ -20,10 +20,17 @@ interface ServiceCardProps {
 export default function ServiceCard({ service }: ServiceCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleClick = () => {
+    // Sur mobile uniquement, toggle l'état
+    if (window.innerWidth < 1024) {
+      setIsOpen(!isOpen);
+    }
+  };
+
   return (
     <div 
       className="relative h-[400px] w-full rounded-2xl overflow-hidden group cursor-pointer"
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={handleClick}
     >
       {/* Image de fond avec titre */}
       <div className="absolute inset-0">

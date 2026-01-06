@@ -26,17 +26,17 @@ const MapWithDocs: React.FC = () => {
               <ul className="flex flex-col gap-2">
                 <li className='style-none'>
                   <a href="/assets/sos-carte-grise-31-carte-grise-cession.pdf" target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 text-lg hover:text-sos-blue transition-colors'>
-                    <ArrowDownTray/> Certificat de cession (CERFA 15776*01)
+                    <span className="flex-shrink-0"><ArrowDownTray/></span> Certificat de cession (CERFA 15776*01)
                   </a>
                 </li>
                 <li className='style-none'>
                   <a href="/assets/sos-carte-grise-31-CERFA_DEMANDE_D_IMMATRICULATION.pdf" target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 text-lg hover:text-sos-blue transition-colors'>
-                    <ArrowDownTray/> Demande de certificat d'immatriculation (CERFA 13750*07)
+                    <span className="flex-shrink-0"><ArrowDownTray/></span> Demande de certificat d'immatriculation (CERFA 13750*07)
                   </a>
                 </li>
                 <li className='style-none'>
                   <a href="/assets/sos-carte-grise-31-mandat.pdf" target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 text-lg hover:text-sos-blue transition-colors'>
-                    <ArrowDownTray/> MANDAT (CERFA 13757*03)
+                    <span className="flex-shrink-0"><ArrowDownTray/></span> MANDAT (CERFA 13757*03)
                   </a>
                 </li>
               </ul>

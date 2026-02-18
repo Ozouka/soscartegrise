@@ -6,19 +6,20 @@ import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import { generateStructuredData } from '@/components/SEO';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SEO_DEFAULT } from '@/lib/constants';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'SOS Carte Grise – Saint-Gaudens | Carte grise simple et rapide',
-    template: '%s | SOS Carte Grise – Saint-Gaudens'
+    default: SEO_DEFAULT.defaultTitle,
+    template: `%s | ${SEO_DEFAULT.siteName}`,
   },
-  description: 'Carte grise en Comminges, simple & rapide. Sans prise de tête : nous gérons votre dossier de A à Z à Saint-Gaudens. Habilité SIV, traitement rapide.',
-  keywords: 'carte grise, Saint-Gaudens, Comminges, immatriculation, changement titulaire, duplicata',
-  authors: [{ name: 'SOS Carte Grise – Saint-Gaudens' }],
-  creator: 'SOS Carte Grise – Saint-Gaudens',
-  publisher: 'SOS Carte Grise – Saint-Gaudens',
+  description: SEO_DEFAULT.defaultDescription,
+  keywords: SEO_DEFAULT.defaultKeywords,
+  authors: [{ name: SEO_DEFAULT.siteName }],
+  creator: SEO_DEFAULT.siteName,
+  publisher: SEO_DEFAULT.siteName,
   robots: {
     index: true,
     follow: true,
@@ -33,28 +34,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://soscartegrise-saintgaudens.fr',
-    title: 'SOS Carte Grise – Saint-Gaudens',
-    description: 'Carte grise en Comminges, simple & rapide. Habilité SIV, traitement rapide.',
-    siteName: 'SOS Carte Grise – Saint-Gaudens',
+    url: SEO_DEFAULT.canonicalUrl,
+    title: SEO_DEFAULT.siteName,
+    description: SEO_DEFAULT.defaultDescription,
+    siteName: SEO_DEFAULT.siteName,
     images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'SOS Carte Grise – Saint-Gaudens',
-      },
+      { url: '/og-image.jpg', width: 1200, height: 630, alt: SEO_DEFAULT.siteName },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SOS Carte Grise – Saint-Gaudens',
-    description: 'Carte grise en Comminges, simple & rapide. Habilité SIV, traitement rapide.',
+    title: SEO_DEFAULT.siteName,
+    description: SEO_DEFAULT.defaultDescription,
     images: ['/og-image.jpg'],
   },
-  alternates: {
-    canonical: 'https://soscartegrise-saintgaudens.fr',
-  },
+  alternates: { canonical: SEO_DEFAULT.canonicalUrl },
 };
 
 export default function RootLayout({

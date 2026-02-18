@@ -1,5 +1,7 @@
 import IconTruck from '@/components/icons/IconTruck';
 import { Metadata } from 'next';
+import { BUSINESS } from '@/lib/constants';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Plaque d\'immatriculation - SOS Carte Grise Saint-Gaudens',
@@ -40,14 +42,7 @@ export default function PlaqueImmatriculationPage() {
 
   const departements = [
     { code: '09', name: 'Ariège' },
-    { code: '11', name: 'Aude' },
-    { code: '12', name: 'Aveyron' },
-    { code: '30', name: 'Gard' },
     { code: '31', name: 'Haute-Garonne' },
-    { code: '32', name: 'Gers' },
-    { code: '34', name: 'Hérault' },
-    { code: '46', name: 'Lot' },
-    { code: '48', name: 'Lozère' },
     { code: '65', name: 'Hautes-Pyrénées' },
     { code: '66', name: 'Pyrénées-Orientales' },
     { code: '81', name: 'Tarn' },
@@ -81,35 +76,28 @@ export default function PlaqueImmatriculationPage() {
             {typesPlaques.map((plaque) => (
               <div
                 key={plaque.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-32 bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center">
-                  <div className="bg-white px-4 py-2 rounded border-2 border-gray-800">
-                    <span className="font-bold text-gray-800">AB-123-CD</span>
-                  </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {plaque.title}
+                </h3>
+                <p className="text-gray-600 mb-4 text-sm">
+                  {plaque.description}
+                </p>
+                <div className="text-lg font-bold text-sky-600 mb-4">
+                  {plaque.price}
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {plaque.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {plaque.description}
-                  </p>
-                  <div className="text-lg font-bold text-sky-600 mb-4">
-                    {plaque.price}
-                  </div>
-                  <ul className="text-sm text-gray-600 mb-4 space-y-1">
-                    {plaque.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <span className="w-2 h-2 bg-sky-600 rounded-full mr-2"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="btn-primary w-full text-sm">
-                    Commander
-                  </button>
-                </div>
+                <ul className="text-sm text-gray-600 mb-4 space-y-1">
+                  {plaque.features.map((feature, index) => (
+                    <li key={index} className="flex items-center">
+                      <span className="w-2 h-2 bg-sky-600 rounded-full mr-2"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className="btn-primary w-full text-sm">
+                  Commander
+                </Link>
               </div>
             ))}
           </div>
@@ -152,7 +140,11 @@ export default function PlaqueImmatriculationPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-2xl">✓</span>
+                  <span className="text-white font-bold text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Homologuées
@@ -174,7 +166,11 @@ export default function PlaqueImmatriculationPage() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-2xl">🛡️</span>
+                  <span className="text-white font-bold text-2xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                    </svg>
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Garantie qualité
@@ -201,7 +197,7 @@ export default function PlaqueImmatriculationPage() {
             <a href="/contact" className="bg-white text-sky-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Commander maintenant
             </a>
-            <a href="tel:0561949494" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-600 transition-colors">
+            <a href={`tel:${BUSINESS.phoneMain.replace(/\s/g, '')}`} className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sky-600 transition-colors">
               Appeler pour commander
             </a>
           </div>

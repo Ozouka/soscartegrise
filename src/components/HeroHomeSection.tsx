@@ -5,11 +5,12 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { HOME_COPY } from '@/lib/constants';
 
 gsap.registerPlugin(useGSAP);
 
 export default function Hero() {
-  const subtitle = "Votre carte grise en toute simplicité... et en quelques minutes !";
+  const subtitle = HOME_COPY.heroSubtitle;
   const container = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);

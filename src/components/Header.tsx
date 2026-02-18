@@ -31,10 +31,11 @@ export default function Header() {
     { name: 'Changement d\'adresse', href: '/prestations#changement-adresse' },
     { name: 'Déclaration de cession', href: '/prestations#declaration-cession' },
     { name: 'Demande de duplicata', href: '/prestations#demande-duplicata' },
-    { name: 'Cas particulier', href: '/prestations#cas-particulier' },
     { name: 'Déclaration d\'achat professionnel', href: '/prestations#achat-professionnel' },
-    { name: 'Carte grise étrangère', href: '/prestations#carte-grise-etrangere' },
     { name: 'Certificat provisoire WW', href: '/prestations#certificat-provisoire-ww' },
+    { name: 'Véhicule de collection', href: '/prestations#vehicule-collection' },
+    { name: 'Carte grise étrangère', href: '/prestations#carte-grise-etrangere' },
+    { name: 'Changement de caractéristiques techniques', href: '/prestations#changement-caracteristiques' },
   ];
 
   const permisItems: DropdownItem[] = [

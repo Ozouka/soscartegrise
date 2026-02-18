@@ -27,6 +27,16 @@ export default function ServiceCard({ service }: ServiceCardProps) {
     }
   };
 
+  // Mapper les IDs des services principaux vers leurs pages respectives
+  const getServicePageUrl = (serviceId: string): string => {
+    const pageMap: Record<string, string> = {
+      'carte-grise': '/prestations',
+      'permis-conduire': '/permis-de-conduire',
+      'plaque-immatriculation': '/plaque-immatriculation',
+    };
+    return pageMap[serviceId] || '/prestations';
+  };
+
   return (
     <div 
       className="relative h-[400px] w-full rounded-2xl overflow-hidden group cursor-pointer"
@@ -75,23 +85,24 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             <div className="mb-6">
               <h4 className="font-medium text-gray-900 mb-2 text-sm">Documents requis :</h4>
               <ul className="space-y-1">
-                {service.documents.slice(0, 3).map((doc, index) => (
-                  <li key={index} className="text-sm text-gray-600 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-sky-600 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span>{doc}</span>
-                  </li>
-                ))}
-                {service.documents.length > 3 && (
-                  <li className="text-sm text-sky-600">
-                    +{service.documents.length - 3} autres documents
-                  </li>
-                )}
+                {service.documents.slice(0, 3).map((doc, index) => {
+                  // Détecter les titres de section (en majuscules ou se terminant par ":")
+                  const isSectionTitle = doc.toUpperCase() === doc && doc.length > 0 && (doc.endsWith(':') || doc.includes('POUR LES'));
+                  return (
+                    <li key={index} className={`text-sm flex items-start gap-2 ${isSectionTitle ? 'font-semibold text-gray-900 mt-2 mb-1' : 'text-gray-600'}`}>
+                      {!isSectionTitle && (
+                        <span className="w-1.5 h-1.5 bg-sky-600 rounded-full mt-1.5 flex-shrink-0"></span>
+                      )}
+                      <span>{doc}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
 
           <Link
-            href={`/services#${service.id}`}
+            href={getServicePageUrl(service.id)}
             className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium transition-colors mt-auto"
             onClick={(e) => e.stopPropagation()}
           >

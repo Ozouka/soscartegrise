@@ -18,12 +18,6 @@ export default function ServicesShowcaseSection({ services }: ServicesShowcaseSe
           </h2>
 
           <ServicesCarousel services={services} />
-
-          <div className="text-center mt-12">
-            <a href="/services" className="btn-primary text-lg px-8 py-4">
-              Voir tous nos services
-            </a>
-          </div>
         </AnimatedSection>
       </div>
     </section>

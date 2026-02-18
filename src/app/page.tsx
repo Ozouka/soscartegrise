@@ -4,45 +4,42 @@ import ServicesPresentationSection from '@/components/sections/ServicesPresentat
 import ServicesShowcaseSection from '@/components/sections/ServicesShowcaseSection';
 import ReassuranceSection, { ReassuranceItem } from '@/components/sections/ReassuranceSection';
 import ContactLocationSection from '@/components/sections/ContactLocationSection';
-import { SERVICES } from '@/lib/constants';
+import { SERVICES, HOME_COPY, SEO_DEFAULT } from '@/lib/constants';
 import ChatBubbleLeftRightIcon from '@/components/icons/ChatBubbleLeftRightIcon';
 import MapPinIcon from '@/components/icons/MapPinIcon';
 import RocketLaunchIcon from '@/components/icons/RocketLaunchIcon';
 
 export const metadata: Metadata = {
-  title: 'SOS Carte Grise – Saint-Gaudens | Carte grise simple et rapide',
-  description: 'Carte grise en Comminges, simple & rapide. Sans prise de tête : nous gérons votre dossier de A à Z à Saint-Gaudens. Habilité SIV, traitement rapide.',
-  keywords: 'carte grise, Saint-Gaudens, Comminges, immatriculation, changement titulaire, duplicata',
+  title: SEO_DEFAULT.defaultTitle,
+  description: SEO_DEFAULT.defaultDescription,
+  keywords: SEO_DEFAULT.defaultKeywords,
   openGraph: {
-    title: 'SOS Carte Grise – Saint-Gaudens',
-    description: 'Carte grise en Comminges, simple & rapide. Habilité SIV, traitement rapide.',
-    url: 'https://soscartegrise-saintgaudens.fr',
-    siteName: 'SOS Carte Grise – Saint-Gaudens',
+    title: SEO_DEFAULT.siteName,
+    description: SEO_DEFAULT.defaultDescription,
+    url: SEO_DEFAULT.canonicalUrl,
+    siteName: SEO_DEFAULT.siteName,
     locale: 'fr_FR',
     type: 'website',
   },
 };
 
-const REASSURANCE_ITEMS: ReassuranceItem[] = [
-  {
-    icon: <ChatBubbleLeftRightIcon className="w-8 h-8" />,
-    title: "L'ÉCOUTE",
-    description: "Parce que chaque dossier est unique, nous prenons le temps de vous écouter et de comprendre vos besoins. Nous vous guidons pas à pas, avec patience et bienveillance."
-  },
-  {
-    icon: <MapPinIcon className="w-8 h-8" />,
-    title: "LA PROXIMITÉ AU CŒUR DE NOTRE SERVICE",
-    description: "À Saint-Gaudens et alentours, nous sommes là, près de vous, au quotidien. Un accompagnement simple, humain et vraiment proche."
-  },
-  {
-    icon: <RocketLaunchIcon className="w-8 h-8" />,
-    title: "UN SERVICE RAPIDE ET EFFICACE",
-    description: "Fini la paperasse qui traîne. Grâce à notre agrément officiel, vos démarches sont simplifiées et finalisées rapidement. Rapide, fiable, sans stress."
-  }
+const REASSURANCE_ICONS = [
+  <ChatBubbleLeftRightIcon key="1" className="w-8 h-8" />,
+  <MapPinIcon key="2" className="w-8 h-8" />,
+  <RocketLaunchIcon key="3" className="w-8 h-8" />,
 ];
+
+function buildReassuranceItems(): ReassuranceItem[] {
+  return HOME_COPY.reassurance.map((item, i) => ({
+    icon: REASSURANCE_ICONS[i],
+    title: item.title,
+    description: item.description,
+  }));
+}
 
 export default function HomePage() {
   const featuredServices = SERVICES.slice(0, 3);
+  const reassuranceItems = buildReassuranceItems();
 
   return (
     <main>
@@ -56,7 +53,7 @@ export default function HomePage() {
       <ServicesShowcaseSection services={featuredServices} />
 
       {/* Section réassurance - Pourquoi nous faire confiance */}
-      <ReassuranceSection items={REASSURANCE_ITEMS} />
+      <ReassuranceSection items={reassuranceItems} />
 
       {/* Section contact et localisation */}
       <ContactLocationSection />

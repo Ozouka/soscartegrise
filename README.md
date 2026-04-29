@@ -11,3 +11,6 @@ Site vitrine complet pour l'entreprise SOS Carte Grise – Saint-Gaudens, spéci
 - **React 19** pour l'interface utilisateur
 
 ## 📁 Structure du projet
+
+
+Update : Projet volé :) donc si jamais vous avez un aperçu avec un lien vercel dans le GitHub et vous pourrez comparer avec le site "réalisé" bonne journée à vous !
